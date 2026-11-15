@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sayriks Space Technological Research - NASA Space Apps Ankara 2026</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;margin:0;color:#111827;background:#e5e7eb;line-height:1.35}
+  .page{position:relative;width:210mm;min-height:297mm;margin:8mm auto;background:#fff;padding:12mm 12mm 18mm 12mm;box-sizing:border-box;box-shadow:0 2px 8px rgba(0,0,0,.15);page-break-after:always}
+  h1{margin:0 0 6px 0;font-size:24px;color:#0b3d91}
+  h2{margin:0 0 8px 0;font-size:18px;color:#0b3d91}
+  h3{margin:10px 0 6px 0;font-size:14px;color:#1e3a8a}
+  p,li{font-size:12.5px}
+  ul{margin:6px 0 8px 18px;padding:0}
+  .hero{background:linear-gradient(135deg,#0b3d91,#1d4ed8,#0ea5e9);color:#fff;padding:14px;border-radius:12px}
+  .hero h1,.hero p{color:#fff}
+  .meta{font-size:12px;margin-top:6px}
+  .card{border:1px solid #dbeafe;border-radius:10px;padding:10px;margin:8px 0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .metric{background:#f1f5f9;border-radius:8px;padding:8px;font-size:12px}
+  table{width:100%;border-collapse:collapse;font-size:11.5px} th,td{border:1px solid #e5e7eb;padding:5px;vertical-align:top;text-align:left}
+  .page-num{position:absolute;top:8mm;right:12mm;font-size:11px;color:#334155;font-weight:700;background:rgba(255,255,255,0.85);padding:2px 8px;border:1px solid #cbd5e1;border-radius:999px}
+  .footer{position:absolute;left:12mm;right:12mm;bottom:7mm;border-top:1px solid #cbd5e1;padding-top:4px;font-size:10px;color:#334155;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+  .small{font-size:11px;color:#374151}
+  @page{size:A4;margin:8mm}
+  @media print{body{background:#fff}.page{margin:0;box-shadow:none;width:auto;min-height:0;padding:0 0 10mm 0}}
+</style>
+</head>
+<body>
+
+<section class="page">
+  <div class="page-num">1/7</div>
+  <div class="hero">
+    <h1>Earth Trend Detective</h1>
+    <p><b>NASA Space Apps Challenge 2026 | Ankara Yerel Etkinliği</b></p>
+    <p><b>Seçilen Sorun (Challenge):</b> Be An Earth System Trend Detective!</p>
+    <div class="meta">
+      <b>Takım:</b> Sayriks Space Technological Research (Takım No: 306) &nbsp;|&nbsp;
+      <b>Takım Sahibi/Üyesi:</b> ÜNAL YÜREKLİ (@sayriks, Turkey)<br/>
+      <b>Tarih:</b> 15 Kasım 2026 &nbsp;|&nbsp; <b>Teslim:</b> nasaankara15@gmail.com ve NASA Resmî Sistemi
+    </div>
+  </div>
+  <div class="card">
+    <h2>1) Proje Özeti</h2>
+    <p><b>Earth Trend Detective</b>, “<i>Ne değişti, nerede, ne kadar değişti ve bu değişim istatistiksel olarak anlamlı mı?</i>” sorusunu yanıtlamak için NASA açık verilerini işleyen etkileşimli bir analiz ve görselleştirme platformudur. Uygulama; zaman serisi trendlerini, anomalileri ve konumsal karşılaştırmaları harita/küre ve grafiklerle sunar, sonuçları kanıta dayalı rapor/sunum çıktısına dönüştürür.</p>
+    <div class="grid3">
+      <div class="metric"><b>Veri kaynağı</b><br/>NASA POWER (1981–günümüz)</div>
+      <div class="metric"><b>Kapsam</b><br/>201 lokasyon hedefi (81 il + ülkeler/başkentler), 36 parametre</div>
+      <div class="metric"><b>Yöntem</b><br/>Trend/10y, p-değeri, %95 GA, Mann-Kendall, anomali analizi</div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Problem ve Hedef</h2>
+    <ul>
+      <li><b>Problem:</b> Dünya sistemi verileri büyük ve teknik; kritik değişimler (ısı, yağış, radyasyon, nem, rüzgar vb.) hızlı ve karşılaştırılabilir içgörüye dönüşmüyor.</li>
+      <li><b>Hedef:</b> Seçilen bölge/dönem/parametre için değişimin yönünü, büyüklüğünü ve istatistiksel anlamlılığını anlaşılır biçimde göstermek.</li>
+      <li><b>Hedef kitle/etki:</b> Vatandaşlar, yerel yönetimler, planlayıcılar; tarım, su, sağlık ve enerji alanlarında farkındalık ve karar desteği.</li>
+    </ul>
+  </div>
+  <div class="footer"><span>306 - Sayriks Space Technological Research</span><span>ÜNAL YÜREKLİ (@sayriks, Turkey)</span><span>NASA Space Apps 2026 | Be An Earth System Trend Detective!</span></div>
+</section>
+
+<section class="page">
+  <div class="page-num">2/7</div>
+  <div class="card">
+    <h2>2) Kullanılan NASA Verileri ve Challenge Uyumu</h2>
+    <ul>
+      <li><b>NASA POWER (Prediction Of Worldwide Energy Resources) API:</b> Günlük/parametrik zaman serileri; lokasyon ve tarih aralığına göre çekilerek analiz edilir.</li>
+      <li><b>Örnek parametre grupları (36 parametre):</b> Sıcaklık (T2M, T2M_MAX, T2M_MIN, T2MDEW, T2MWET), yağış (PRECTOTCORR), nem (RH2M, QV2M), rüzgar/basınç (WS10M, WS2M, PS), güneş/radyasyon ve enerji bileşenleri (ALLSKY_SFC_SW_DWN, CLRSKY_SFC_SW_DWN, ALLSKY_SFC_LW_DWN vb.), bulut/aerosol ilişkili göstergeler.</li>
+      <li><b>Challenge beklentisiyle uyum:</b> Trend tespiti, konum ve büyüklük, görselleştirme ve istatistiksel anlamlılık kanıtı (p-değeri, %95 GA, Mann-Kendall) sağlanır.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Ek Veri ve Kaynaklar</h2>
+    <ul>
+      <li><b>World Bank Open Data (WDI API):</b> Tamamlayıcı bağlam göstergeleri (emisyon, enerji kullanımı, yenilenebilir enerji, PM2.5, elektrik erişimi, orman alanı vb.) `worldbank_indicator_raw` katmanında işlenir.</li>
+      <li><b>Yazılım/araçlar:</b> Python, Streamlit, Pandas/NumPy/SciPy (istatistik), Plotly (görselleştirme), MySQL/PyMySQL (işlenmiş veri katmanı), Requests (API erişimi), HTML/CSS rapor çıktısı.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Veri İşleme Durumu (çalışma anı özeti)</h2>
+    <table>
+      <tr><th>Katman</th><th>Durum</th><th>Açıklama</th></tr>
+      <tr><td>NASA ham veri (MySQL)</td><td>109.295.138 kayıt</td><td>198 lokasyon işlenmiş (36 parametre, 1981–2026); eksik lokasyon/analiz tamamlama ve güncelleme arka planda sürmektedir (son çekim: 2026-11-15 10:03:10)</td></tr>
+      <tr><td>Analiz sonuçları</td><td>1.116 kayıt</td><td>Lokasyon-parametre bazlı trend/özet metrikler; ingest tamamlandıkça otomatik genişletme</td></tr>
+      <tr><td>World Bank ham veri</td><td>8.331+ kayıt (güncel)</td><td>WDI göstergeleri işlenmektedir; API hataları nedeniyle retry ile kapsam tamamlanmaya devam ediyor</td></tr>
+    </table>
+    <p class="small">Not: Büyük veri alımı ve işleme zaman alabilir; canlı prototipte gerçek veri, bağlantı sorununda simülasyon/fallback veya önceden üretilmiş kanıt çıktıları doğru şekilde adlandırılarak gösterilir.</p>
+  </div>
+  <div class="footer"><span>306 - Sayriks Space Technological Research</span><span>ÜNAL YÜREKLİ (@sayriks, Turkey)</span><span>NASA Space Apps 2026 | Be An Earth System Trend Detective!</span></div>
+</section>
+
+<section class="page">
+  <div class="page-num">3/7</div>
+  <div class="card">
+    <h2>3) Çözüm Mimarisi ve Nasıl Çalışır?</h2>
+    <div class="grid2">
+      <div>
+        <h3>Veri ve İşleme</h3>
+        <ul>
+          <li>NASA POWER API’den lokasyon/parametre/tarih bazlı veri çekimi</li>
+          <li>MySQL’de ham ve işlenmiş katmanlar: `locations`, `nasa_power_raw`, `analysis_results`, `worldbank_indicator_raw`</li>
+          <li>Eksik/sorunlu değerlerin (-999 vb.) analize etkisini dikkate alan işleme</li>
+          <li>Günlük/aylık seri ve yıl-ay aralığı seçimi</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Analiz ve Görselleştirme</h3>
+        <ul>
+          <li>Trend (on yıllık eğim), **p-değeri**, **%95 güven aralığı**, **Mann-Kendall** anlamlılık testi</li>
+          <li>Mevsimsel ve mevsim dışı anomali incelemesi</li>
+          <li>Ülke/il ortalamaları ve dönemsel değişim karşılaştırmaları</li>
+          <li>Etkileşimli harita/küre, zaman serisi ve karşılaştırma grafikleri</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Uygulama Akışı (Tek Ana Akış)</h2>
+    <ol>
+      <li><b>Kontrol Paneli:</b> Veri kaynağı (MySQL/NASA POWER/Simülasyon), parametre, lokasyon ve tarih aralığı seçimi</li>
+      <li><b>Harita & Genel Bakış:</b> Seçili nokta, metrikler ve harita/küre görünümleri</li>
+      <li><b>Trend & İstatistik:</b> Zaman serisi, trend çizgisi, anomali, p-değeri/%95 GA/MK</li>
+      <li><b>Karşılaştırma & Kanıt:</b> Lokasyon taraması, ülke/il ortalamaları, anomaliler, radyasyon bulguları</li>
+      <li><b>Sunum/Rapor:</b> Veri destekli çıktı ve indirilebilir/yazdırılabilir kanıt</li>
+    </ol>
+  </div>
+  <div class="footer"><span>306 - Sayriks Space Technological Research</span><span>ÜNAL YÜREKLİ (@sayriks, Turkey)</span><span>NASA Space Apps 2026 | Be An Earth System Trend Detective!</span></div>
+</section>
+
+<section class="page">
+  <div class="page-num">4/7</div>
+  <div class="card">
+    <h2>4) Örnek Bulgular ve Kanıtlar</h2>
+    <ul>
+      <li><b>Trend kanıtı:</b> Seçili lokasyon ve parametre için on yıllık trend, p-değeri, %95 güven aralığı ve Mann-Kendall sonucu birlikte raporlanır; değişimin anlamlılığı nicel olarak sunulur.</li>
+      <li><b>Konumsal karşılaştırma:</b> 201 lokasyon hedefi kapsamında ülke/il ortalamaları ve dönemler arası değişimler karşılaştırılarak “nerede, ne kadar” soruları yanıtlanır.</li>
+      <li><b>Anomali analizi:</b> Mevsimsel döngüler ve mevsim dışı sapmalar ayrıştırılarak olağan dışı dönemler görünür hale getirilir.</li>
+      <li><b>Radyasyon/iklim göstergeleri:</b> Güneş radyasyonu ve ilişkili parametrelerdeki değişimler; potansiyel fayda-risk bağlamı ve yorumlanabilir bulgularla sunulur.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Doğrulama, Güvenilirlik ve Sınırlamalar</h2>
+    <ul>
+      <li><b>Güvenilirlik:</b> Açık NASA verisi, tekrarlanabilir istatistiksel yöntemler, işlenmiş veri katmanı ve kayıtlı analiz çıktıları.</li>
+      <li><b>Sınırlamalar:</b> Uydu/model verileri yer gözlemiyle farklılaşabilir; eksik veri ve kapsama farkları hassasiyeti etkileyebilir; nedensellik yorumları dikkatle yapılmalıdır.</li>
+      <li><b>Risk azaltma:</b> Bağlantı/API/DB sorunlarına karşı ekran görüntüsü, ekran kaydı ve önceden üretilmiş HTML/CSV kanıt yedekleri hazırlanır.</li>
+    </ul>
+  </div>
+  <div class="footer"><span>306 - Sayriks Space Technological Research</span><span>ÜNAL YÜREKLİ (@sayriks, Turkey)</span><span>NASA Space Apps 2026 | Be An Earth System Trend Detective!</span></div>
+</section>
+
+<section class="page">
+  <div class="page-num">5/7</div>
+  <div class="card">
+    <h2>5) Çözümün Değeri ve SWOT Analizi</h2>
+    <ul>
+      <li><b>Değer:</b> Büyük NASA veri setlerini hızlı, karşılaştırılabilir ve kanıt odaklı içgörülere dönüştürür.</li>
+      <li><b>Yaratıcılık:</b> MySQL işlenmiş katman, çok lokasyon/çok parametre analiz, harita-küre görselleştirme, anomali ve istatistiksel anlamlılık birleşimi, çok dilli arayüz ve rapor üretimi.</li>
+    </ul>
+    <table>
+      <tr><th>Güçlü Yönler</th><th>Zayıf Yönler</th></tr>
+      <tr>
+        <td><ul><li>NASA açık verisi + istatistiksel doğrulama</li><li>Geniş kapsam (36 parametre, 201 lokasyon hedefi)</li><li>İşlenmiş veri katmanı ve kanıt odaklı çıktılar</li></ul></td>
+        <td><ul><li>Uydu/model-yer ölçümü farkları</li><li>Eksik veri/kapsama etkileri</li><li>Büyük ingest ve hesaplama maliyeti</li></ul></td>
+      </tr>
+      <tr><th>Fırsatlar</th><th>Tehditler</th></tr>
+      <tr>
+        <td><ul><li>İklim uyum/mitigasyon ve erken uyarı desteği</li><li>Yerel yönetim, tarım, enerji, eğitim kullanımı</li><li>Ek veri entegrasyonu ve senaryo modelleme</li></ul></td>
+        <td><ul><li>API/veri sürekliliği ve erişim sorunları</li><li>Yanlış/bağlamsız yorumlama riski</li><li>Veri formatı/değişim ve bakım ihtiyacı</li></ul></td>
+      </tr>
+    </table>
+  </div>
+  <div class="card">
+    <h2>Etki ve Gelecek Planı</h2>
+    <ul>
+      <li><b>Kısa vadeli etki:</b> Lokasyon bazlı değişim ve anlamlılık görünürlüğü ile daha hızlı farkındalık.</li>
+      <li><b>Gelecek senaryosu:</b> Düzenli veri güncelleme, ek gözlem kaynakları entegrasyonu, risk/uyarı panelleri ve daha geniş coğrafi kapsam.</li>
+    </ul>
+  </div>
+  <div class="footer"><span>306 - Sayriks Space Technological Research</span><span>ÜNAL YÜREKLİ (@sayriks, Turkey)</span><span>NASA Space Apps 2026 | Be An Earth System Trend Detective!</span></div>
+</section>
+
+<section class="page">
+  <div class="page-num">6/7</div>
+  <div class="card">
+    <h2>6) Demo Görselleri (7 sn) ve 30 sn Video</h2>
+    <p><b>Bu sunumla birlikte 30 saniyelik demo videosu gönderilmektedir.</b> Aşağıdaki storyboard, videodaki <b>7 saniyelik kritik görsel akışı</b> (özet kesit) ve uygulama ekranlarını temsil eder.</p>
+    <table>
+      <tr>
+        <th style="width:18%">Zaman</th>
+        <th style="width:32%">Ekran/Görsel</th>
+        <th>Gösterilen Kanıt</th>
+      </tr>
+      <tr>
+        <td><b>0–2 sn</b><br/><span class="small">Kontrol Paneli</span></td>
+        <td><div class="metric" style="min-height:70px"><b>Görsel 1:</b> Veri kaynağı (NASA POWER/MySQL), parametre, lokasyon ve tarih aralığı seçimi</div></td>
+        <td>Kullanıcı seçimi ile analiz kapsamı belirlenir (ne/nerede/ne zaman).</td>
+      </tr>
+      <tr>
+        <td><b>2–4 sn</b><br/><span class="small">Harita & Genel Bakış</span></td>
+        <td><div class="metric" style="min-height:70px"><b>Görsel 2:</b> Harita/küre üzerinde seçili nokta, temel metrikler ve özet göstergeler</div></td>
+        <td>Konumsal bağlam ve anlık özet (değişimin nerede olduğu) görünür.</td>
+      </tr>
+      <tr>
+        <td><b>4–7 sn</b><br/><span class="small">Trend & Kanıt</span></td>
+        <td><div class="metric" style="min-height:70px"><b>Görsel 3:</b> Zaman serisi, trend çizgisi, anomali; p-değeri, %95 GA, Mann-Kendall sonuçları</div></td>
+        <td>Ne kadar değiştiği ve istatistiksel anlamlılık kanıtı sunulur.</td>
+      </tr>
+    </table>
+    <ul>
+      <li><b>30 sn video içeriği:</b> Tek ana akışın tamamı (kontrol paneli → harita/genel bakış → trend/istatistik → karşılaştırma & kanıt → sunum/rapor çıktısı).</li>
+      <li><b>Adlandırma:</b> Çalışan prototip/Canlı demo (gerçek NASA POWER/MySQL verisi), Simülasyon/fallback modu (akış testi), Test/kanıt çıktısı (önceden üretilmiş rapor-kayıt).</li>
+      <li><b>Demo videosu:</b> <b>Ek dosya: DEMO_30SN.mp4</b> (30 sn, bu teslimle birlikte gönderilir). [Varsa public link: __________]</li>
+      <li><b>Proje bağlantısı (GitHub/Repo):</b> [PUBLIC GITHUB LINKINI BURAYA EKLEYIN] (public değilse: kaynak kod ve kanıtlar yerel prototip + ek rapor/kayıtlarla sunulur).</li>
+      <li><b>SI/AI beyanı:</b> Proje analizleri NASA POWER ve World Bank verileri üzerinde tanımlı istatistiksel yöntemlerle gerçekleştirilmiştir. [Geliştirmede/dokümantasyonda üretken yapay zekâ aracı kullanıldıysa burada ve NASA resmî sistemindeki beyan alanında şeffafça belirtiniz; AI üretimi medya varsa filigran/açıklama ekleyiniz. Kullanılmadıysa: "Üretken YZ/SI aracı kullanılmamıştır" olarak güncelleyiniz.]</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Neden Bizi Tercih Etmelisiniz? (Avantaj Özeti) &amp; Ekosisteme Katkımız</h2>
+    <ul>
+      <li><b>Neden bizi tercih etmelisiniz?</b> NASA POWER açık verisini istatistiksel doğrulamayla (trend/10y, p-değeri, %95 GA, Mann-Kendall) birleştiriyoruz; 36 parametre ve 201 lokasyon hedefiyle geniş karşılaştırma, MySQL işlenmiş veri katmanıyla hızlı analiz, çok dilli ve kanıt odaklı (harita/küre, anomali, indirilebilir rapor) bir deneyim sunuyoruz.</li>
+      <li><b>Ekosisteme katkımız:</b> Isı, kuraklık, yağış ve UV/radyasyon değişimlerini erken görünür kılarak tarım, su ve enerji planlamasını destekler; habitat baskısı ve biyoçeşitlilik risklerine yönelik izleme/erken uyarı ile koruma ve sürdürülebilir kaynak kullanımı kararlarına katkı sağlar.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>7) Kaynakça ve Teslim Notu</h2>
+    <ul>
+      <li>NASA POWER Project & API: https://power.larc.nasa.gov/</li>
+      <li>NASA Space Apps Challenge 2026 — “Be An Earth System Trend Detective!”: https://www.spaceappschallenge.org/2026/challenges/earth-system-trend-detective/</li>
+      <li>NASA Space Apps Project Submission Guide: https://www.spaceappschallenge.org/resources/project-submission-guide/</li>
+      <li>World Bank Open Data / Indicators API: https://data.worldbank.org/ ve https://api.worldbank.org/</li>
+      <li>Açık kaynak kütüphaneler: Python, Streamlit, Pandas, NumPy, SciPy, Plotly, PyMySQL, Requests</li>
+    </ul>
+    <p class="small"><b>Teslim:</b> Bu 7 sayfalık sunum (7 sn’lik görsel akış dahil) ve 30 sn demo videosu (<b>DEMO_30SN.mp4</b>) birlikte gönderilir. NASA resmî sistemine proje İngilizce yüklenir. Kullanılan tüm veri/kod/materyaller ilgili koşullara uygun referanslandırılır; SI/AI kullanımı varsa şeffaf beyan edilir.</p>
+  </div>
+  
+  <div class="card" style="border-left:4px solid #0b3d91"><p style="margin:0;font-size:14px;font-weight:700;color:#0b3d91;text-align:center">"Zaman Hızla Tükeniyor. Gelecek Yarınlar için Harekete Geçme Zamanı"</p></div>
+  <div class="footer"><span>306 - Sayriks Space Technological Research</span><span>ÜNAL YÜREKLİ (@sayriks, Turkey)</span><span>NASA Space Apps 2026 | Be An Earth System Trend Detective!</span></div>
+</section>
+
+
+<section class="page">
+  <div class="hero">
+    <h1>Kapanış</h1>
+    <p><b>Earth Trend Detective</b> — NASA Space Apps 2026: Be An Earth System Trend Detective!</p>
+  </div>
+  <div class="card">
+    <h2>Neden Bizi Tercih Etmelisiniz? &amp; Ekosisteme Katkımız (Özet)</h2>
+    <ul>
+      <li><b>Avantajımız:</b> NASA POWER verisini istatistiksel doğrulamayla (trend/10y, p-değeri, %95 GA, Mann-Kendall) birleştiriyor; 36 parametre ve 201 lokasyon hedefiyle hızlı, karşılaştırılabilir ve kanıt odaklı içgörü sunuyoruz.</li>
+      <li><b>Ekosisteme katkımız:</b> Isı/kuraklık/yağış/UV-radyasyon değişimlerini erken görünür kılarak tarım-su-enerji planlaması, biyoçeşitlilik ve habitat koruma kararlarına destek oluyoruz.</li>
+    </ul>
+  </div>
+  <div class="card" style="border-left:4px solid #0b3d91;margin-top:16px">
+    <p style="margin:0;font-size:20px;font-weight:700;color:#0b3d91;text-align:center">"Zaman Hızla Tükeniyor. Gelecek Yarınlar için Harekete Geçme Zamanı"</p>
+  </div>
+  <div class="footer"><span>306 - Sayriks Space Technological Research</span><span>ÜNAL YÜREKLİ (@sayriks, Turkey)</span><span>NASA Space Apps 2026 | Be An Earth System Trend Detective!</span></div>
+</section>
+
+</body>
+</html>

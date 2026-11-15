@@ -1,88 +1,89 @@
-# Earth Trend Detective (NASA Space Apps Challenge 2026)
+# Earth Trend Detective — Be An Earth System Trend Detective!
 
-**SAYRİKS Space Technological Research** tarafından geliştirilen, NASA açık verilerini kullanarak seçili lokasyonlarda iklim göstergelerindeki **trend ve anomalileri** analiz eden açık kaynaklı Streamlit uygulaması.
+**NASA Space Apps Challenge 2026** | Team/Project: **Sayriks Space Technological Research**  
+**Team Member (Owner):** ÜNAL YÜREKLİ (@sayriks, Turkey)
 
-## Proje Özeti
-- **Amaç:** Zaman serisi iklim verilerinde eğilim (trend) ve sapmaları (anomali) hızlı, anlaşılır ve yorumlanabilir şekilde göstermek.
-- **Etki:** Öğrenciler, yerel planlayıcılar ve araştırmacılar için erken içgörü ve önceliklendirme desteği sağlamak.
-- **Odak kriterleri:** Etki, Yaratıcılık, Gerçekçilik, Geçerlilik, Sunum.
+## Overview
+Earth Trend Detective is an interactive Streamlit application that answers: **What changed, where, by how much, and is the change statistically meaningful?**  
+It analyzes NASA POWER Earth-system time-series data (1981–present) across multiple parameters and locations (Türkiye’s 81 provinces + selected countries/capitals), providing trends, anomalies, comparisons, and evidence-oriented visualizations.
 
-## Öne Çıkan Özellikler
-- **Gerçek veri modu:** NASA POWER Daily Point API üzerinden günlük zaman serisi çekimi (`T2M`, `T2M_MAX`, `T2M_MIN`, `RH2M`, `PRECTOTCORR`).
-- **Offline/Demo modu:** Ağ/API erişimi olmadığında etiketli simülasyon (fallback) ile arayüz ve akış testi.
-- **İstatistiksel analiz:** Ortalama/min/max/std, lineer trend eğimi, R² ve **p-value**; anlamlılık yorumu.
-- **Görselleştirme:** Günlük/yıllık seri grafikleri, trend çizgisi, yıllık anomali grafiği, harita görünümü.
-- **Karşılaştırma:** Hazır lokasyonlarda hızlı trend taraması ve sıralama tablosu.
-- **Veri dışa aktarım:** Filtrelenmiş veriyi CSV olarak indirme.
-- **Metodoloji & Kaynaklar:** Veri kaynağı, yöntem, varsayım/sınırlılık ve atıf bilgileri.
-- **Sunum sekmesi:** Uygulama içinde 7 sayfalık jüri sunum akışı (konuşma notları ve demo adımları).
+## Challenge
+- **Challenge:** Be An Earth System Trend Detective! (NASA Space Apps 2026)
+- **Goal:** Detect trends in Earth system data and communicate what changed, where, magnitude, and statistical significance with clear visual and statistical evidence.
 
-## Proje Yapısı
-```text
-.
-├── app.py                  # Ana Streamlit uygulaması (sekmeler + sunum sayfası)
-├── utils/
-│   ├── __init__.py
-│   ├── data_fetcher.py     # NASA POWER veri çekme ve ön işleme
-│   └── analyzer.py         # İstatistik ve trend/anlamlılık analizi
-├── .streamlit/config.toml  # Tema ayarları
-├── archive/                # Önceki app sürümleri (app001-app007)
-├── requirements.txt
-├── README.md
-├── SUNUM.md                # Yazılı sunum metni (7+ bölüm)
-├── LICENSE
-├── baslat.bat
-└── baslat.sh
-```
+## Key Features
+- NASA POWER data ingestion and MySQL-backed processed storage for fast analysis
+- Trend and significance analysis: linear trend (per decade), **p-value**, **95% confidence interval**, **Mann–Kendall** test
+- Daily/monthly series, year/month range selection, seasonal and non-seasonal anomaly views
+- Interactive map/globe visualizations and location comparisons (country/province averages and changes)
+- World Bank indicators as complementary context (`worldbank_indicator_raw`)
+- Multilingual UI (TR/EN/DE/FR/IT)
+- Downloadable/printable HTML presentation-report output (jury-oriented flow, timeline, SWOT, evidence pages)
 
-## Kurulum ve Çalıştırma
+## Data Sources
+- **NASA POWER (Prediction Of Worldwide Energy Resources)** via NASA POWER API — primary Earth observation/model-derived parameters (temperature, precipitation, humidity, wind/pressure, radiation/energy, cloud/aerosol, etc.; project configured for 36 parameters).  
+  *NASA data/resources are used in this project for analysis and visualization.*
+- **World Bank Open Data (World Development Indicators API)** — contextual indicators (where available).
+- See `submission/PORTAL_SUBMISSION_DRAFT_EN.md` for the detailed data/resources list to paste into the Space Apps Project page.
 
-### Gereksinimler
+## Repository Structure
+- `app.py` — Streamlit application (UI, analysis, visualizations, report/presentation export)
+- `utils/` — data fetching and analysis utilities
+- `database/` — schemas and ingestion scripts (`ingest_nasa_to_db.py`, `ingest_worldbank_to_db.py`, `schema_mysql.sql`)
+- `RAPOR_Earth_Trend_Detective.html` — sample generated report output
+- `SUNUM.md`, `PROJECT_STRUCTURE.md` — project notes
+- `submission/` — submission drafts and upload guide
+
+## Setup & Run (local)
+### Prerequisites
 - Python 3.10+
-- İnternet erişimi (NASA POWER gerçek veri modu için)
+- MySQL (optional but recommended for processed dataset) or run with available data/simulation fallback
+- NASA POWER API access (internet) for live fetching/ingestion
 
-### Windows
-```bat
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-streamlit run app.py
-```
-veya `baslat.bat`
-
-### Linux / WSL
+### Install
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+python -m venv .venv
+source .venv/bin/activate  # Linux/macOS (WSL)
 pip install -r requirements.txt
-streamlit run app.py
 ```
-veya `bash baslat.sh`
 
-## Metodoloji (Kısa)
-- **Veri:** NASA POWER Daily API (`community=RE`, günlük nokta zaman serisi).
-- **Ön işleme:** Tarih/sayısal dönüşüm, eksik/geçersiz değer ayıklama (örn. -999).
-- **Analiz:** Temel istatistikler + lineer regresyon (`scipy.stats.linregress`) ile eğim, R², p-value.
-- **Yorum:** p-value ve örneklem büyüklüğüne göre anlamlılık yorumu; sonuçlar yöntemsel sınırlılıklarla birlikte sunulur.
-- **Anomali:** Yıllık ortalamaların dönem ortalamasına göre sapması.
+### Configure database (optional, recommended)
+Create a `.env` file (do **not** commit it):
+```env
+DB_MODE=mysql
+MYSQL_HOST=<host>
+MYSQL_PORT=3306
+MYSQL_USER=<user>
+MYSQL_PASSWORD=<password>
+MYSQL_DATABASE=sayriks_earth_trend_detective
+```
+Initialize schema (MySQL): run `database/schema_mysql.sql`.
 
-## Veri Kaynakları ve Atıf
-- NASA POWER Project: https://power.larc.nasa.gov/
-- NASA Space Apps Challenge: https://www.spaceappschallenge.org/
-- NASA Space Apps (GitHub): https://github.com/nasa/spaceapps
-- Challenge Details/Resources kapsamında referans verilen araç/kaynaklar: Giovanni, AppEEARS, CDO, KNMI Climate Explorer, istatistiksel anlamlılık/trend test rehberleri, SWOT/RCM vb. (kullanım/karşılaştırma durumuna göre metodolojide belirtilir).
+### Run the app
+```bash
+streamlit run app.py --server.address 0.0.0.0 --server.port 8501
+```
+Open http://localhost:8501
 
-## Sınırlılıklar
-- Tek lokasyon/parametre analizi tüm iklim sistemini temsil etmez.
-- Model/uydu tabanlı veri ürünleri yer gözlemleriyle farklılık gösterebilir.
-- Lineer trend ve p-value yorumu; otokorelasyon, veri boşlukları ve model varsayımlarına duyarlıdır.
-- Simülasyon modu bilimsel gözlem değildir (yalnızca demo/fallback).
-- Çıktılar erken içgörü amaçlıdır; kritik kararlar için uzman değerlendirmesi gerekir.
+### Data ingestion (optional, long-running)
+```bash
+# NASA POWER -> MySQL
+python database/ingest_nasa_to_db.py --db mysql --env .env
 
-## Uyum ve Notlar
-- Bu proje **NASA tarafından desteklenmemekte veya onaylanmamaktadır**. NASA açık verilerini kullanır.
-- NASA Space Apps Challenge **Terms & Conditions** ve davranış kurallarına uygun hazırlanmalıdır.
-- Katkıda bulunurken veri kullanımı, atıf ve paylaşım koşullarına uyulmalıdır.
+# World Bank indicators -> MySQL
+python database/ingest_worldbank_to_db.py --env .env
+```
 
-## Lisans
-Bu proje [MIT Lisansı](LICENSE) ile lisanslanmıştır.
+## Demo & Evidence
+- **Project Demo (video/slides):** [PASTE PUBLIC DEMO LINK]
+- **Final Project:** [PASTE PUBLIC REPO/PROJECT LINK]
+- **Backup evidence:** screen recording, screenshots, and generated HTML/CSV outputs (see `submission/UPLOAD_AND_LINKS_TR.md`)
+
+> Labeling: *Working prototype / Live demo* (real data), *Simulation (offline/fallback) mode* (flow test only), *Test/evidence output* (pre-generated artifacts).
+
+## AI / Super Intelligence (SI) Disclosure
+[REVIEW AND UPDATE] Document any AI/SI tool usage transparently in the Space Apps submission and in linked materials (including watermarks/metadata for AI-generated media where applicable). Do not use AI to modify NASA branding/design elements.
+
+## License & Acknowledgments
+- License: see `LICENSE` (update if needed).
+- Data: NASA POWER, World Bank Open Data, and other referenced sources as listed in the submission. Respect original data/source terms and cite all third-party materials used.
